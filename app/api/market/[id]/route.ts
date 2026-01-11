@@ -37,6 +37,7 @@ export async function GET(
       "24h": 1,
       "7d": 7,
       "30d": 30,
+      "1y": 365,
     };
     const days = daysMap[timeframe] || 1;
 

@@ -4,7 +4,7 @@ import { type Time } from "lightweight-charts";
 
 export const useMarketData = (
   market: MarketKey,
-  timeframe: "24h" | "7d" | "30d" = "24h"
+  timeframe: "24h" | "7d" | "30d" | "1y" = "24h"
 ) => {
   const [price, setPrice] = useState<number | null>(null);
   const [ohlcData, setOhlcData] = useState<any[]>([]);

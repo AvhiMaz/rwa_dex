@@ -29,7 +29,7 @@ export default function Home() {
 
   const [market, setMarket] = useState<MarketKey>("XAUT");
   const [activeTab, setActiveTab] = useState<"market" | "positions">("market");
-  const [timeframe, setTimeframe] = useState<"24h" | "7d" | "30d">("24h");
+  const [timeframe, setTimeframe] = useState<"24h" | "7d" | "30d" | "1y">("24h");
 
   const [margin, setMargin] = useState("1");
   const [leverage, setLeverage] = useState(3);
@@ -132,7 +132,7 @@ export default function Home() {
                   )}
 
                   <div className="flex justify-center gap-2 my-6">
-                    {(["24h", "7d", "30d"] as const).map((tf) => (
+                    {(["24h", "7d", "30d", "1y"] as const).map((tf) => (
                       <button
                         key={tf}
                         onClick={() => setTimeframe(tf)}
