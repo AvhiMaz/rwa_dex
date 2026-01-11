@@ -54,6 +54,20 @@ export const TradingChart = ({ data }: TradingChartProps) => {
                 borderVisible: false,
                 timeVisible: true,
                 secondsVisible: false,
+                tickMarkFormatter: (time: any) => {
+                    const date = new Date(Number(time) * 1000);
+                    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                    const day = date.getDate().toString().padStart(2, '0');
+                    const hours = date.getHours().toString().padStart(2, '0');
+                    const minutes = date.getMinutes().toString().padStart(2, '0');
+
+                    const daysDiff = (Date.now() - date.getTime()) / (1000 * 60 * 60 * 24);
+                    if (daysDiff > 2) {
+                        return `${month}/${day}`;
+                    } else {
+                        return `${hours}:${minutes}`;
+                    }
+                },
             },
             crosshair: {
                 vertLine: {
