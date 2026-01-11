@@ -93,8 +93,8 @@ export const TradePanel = ({
 
         {/* Buttons */}
         <div className="grid grid-cols-2 gap-4">
-          <Button className="bg-emerald-600" disabled={!canTrade} onClick={onOpenLong}>Long</Button>
-          <Button className="bg-rose-600" disabled={!canTrade} onClick={onOpenShort}>Short</Button>
+          <Button className="bg-emerald-600 cursor-pointer" disabled={!canTrade} onClick={onOpenLong}>Long</Button>
+          <Button className="bg-rose-600 cursor-pointer" disabled={!canTrade} onClick={onOpenShort}>Short</Button>
         </div>
 
         {!isConnected && <p className="text-xs text-center text-muted-foreground">Connect wallet to trade</p>}
