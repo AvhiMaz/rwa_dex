@@ -157,21 +157,28 @@ export default function Home() {
               ) : (
                 <motion.div key="positions">
 
-                  {(!pricesReady || initialLoad) && (
+                  {!isConnected && (
+                    <div className="flex flex-col items-center h-[300px] justify-center text-muted-foreground">
+                      <Activity className="w-10 h-10 opacity-30" />
+                      <p className="mt-4">Connect wallet to view positions</p>
+                    </div>
+                  )}
+
+                  {isConnected && (!pricesReady || initialLoad) && (
                     <div className="flex flex-col items-center h-[300px] justify-center text-muted-foreground">
                       <Loader2 className="w-8 h-8 animate-spin" />
                       <p className="mt-4">Loading positions…</p>
                     </div>
                   )}
 
-                  {pricesReady && !initialLoad && allPositions.length === 0 && (
+                  {isConnected && pricesReady && !initialLoad && allPositions.length === 0 && (
                     <div className="flex flex-col items-center h-[300px] justify-center text-muted-foreground">
                       <Activity className="w-10 h-10 opacity-30" />
                       <p className="mt-4">No open positions</p>
                     </div>
                   )}
 
-                  {pricesReady && !initialLoad && allPositions.length > 0 && (
+                  {isConnected && pricesReady && !initialLoad && allPositions.length > 0 && (
                     <div className="space-y-6">
                       {allPositions.map((pos, i) => (
                         <PositionCard
